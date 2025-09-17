@@ -8,5 +8,7 @@ public class HelloThreadMain {
         HelloThread helloThread = new HelloThread();
         System.out.println(Thread.currentThread().getName());
         helloThread.start();
+
+
     }
 }
