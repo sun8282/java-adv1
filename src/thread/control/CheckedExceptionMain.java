@@ -1,5 +1,9 @@
 package thread.control;
 
+import util.ThreadUtils;
+
+import static util.ThreadUtils.*;
+
 public class CheckedExceptionMain {
 
     public static void main(String[] args) throws Exception{
@@ -10,7 +14,7 @@ public class CheckedExceptionMain {
 
         @Override
         public void run() {
-            throw new RuntimeException();
+            sleep(1000);
         }
     }
 }
