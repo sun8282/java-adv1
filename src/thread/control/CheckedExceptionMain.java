@@ -9,8 +9,8 @@ public class CheckedExceptionMain {
     static class CheckedRunnable implements Runnable {
 
         @Override
-        public void run() throws Exception {
-            throw new Exception();
+        public void run() {
+            throw new RuntimeException();
         }
     }
 }
