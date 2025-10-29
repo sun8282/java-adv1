@@ -21,21 +21,29 @@ public class BankAccountV4 implements BankAccount {
         log("거래 시작: " + getClass().getSimpleName());
 
         lock.lock();
-        if(balance < amount) {
-            log("[검증 실패]");
-            return false;
+
+        try {
+            if(balance < amount) {
+                log("[검증 실패]");
+                return false;
+            }
+
+            sleep(1000);
+            balance = balance - amount;
+        } finally {
+            lock.unlock();
         }
-
-        sleep(1000);
-        balance = balance - amount;
-
-        lock.unlock();
         log("거래 종료");
         return true;
     }
 
     @Override
-    public synchronized int getBalance() {
-        return balance;
+    public int getBalance() {
+        lock.lock();
+        try{
+            return balance;
+        } finally {
+            lock.unlock();
+        }
     }
 }
