@@ -3,6 +3,7 @@ package thread.bounded;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
+import static java.lang.Object.*;
 import static util.MyLogger.log;
 import static util.ThreadUtils.sleep;
 
@@ -19,8 +20,11 @@ public class BoundedQueueV3 implements BoundedQueue {
     public synchronized void put(String data) {
         while(queue.size() == max) {
             log("큐가 가득참, 생산자 대기");
-            sleep(1000);
-            return;
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
         queue.offer(data);
     }
