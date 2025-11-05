@@ -8,26 +8,26 @@ import static util.ThreadUtils.sleep;
 public class BoundedMain {
 
     public static void main(String[] args) {
-        BoundedQueueV2 queue = new BoundedQueueV2(2);
+        BoundedQueueV3 queue = new BoundedQueueV3(2);
 
         producerFirst(queue);
         consumerFirst(queue);
 
     }
 
-    private static void consumerFirst(BoundedQueueV1 queue) {
+    private static void consumerFirst(BoundedQueueV3 queue) {
         ArrayList<Thread> threads = new ArrayList<>();
         startProducer(queue, threads);
     }
 
-    private static void producerFirst(BoundedQueueV1 queue) {
+    private static void producerFirst(BoundedQueueV3 queue) {
         List<Thread> threads = new ArrayList<>();
         startProducer(queue, threads);
         startConsumer(queue, threads);
 
     }
 
-    private static void startConsumer(BoundedQueueV1 queue, List<Thread> threads) {
+    private static void startConsumer(BoundedQueueV3 queue, List<Thread> threads) {
         System.out.println();
         for (int i = 1; i < 3; i++) {
             Thread consumer = new Thread(new ConsumerTask(queue), "consumer" + i);
@@ -37,7 +37,7 @@ public class BoundedMain {
         }
     }
 
-    private static void startProducer(BoundedQueueV1 queue, List<Thread> threads) {
+    private static void startProducer(BoundedQueueV3 queue, List<Thread> threads) {
         System.out.println();
         for (int i = 0; i < 3; i++) {
             Thread producer = new Thread(new ProducerTask(queue, "data" + i));
