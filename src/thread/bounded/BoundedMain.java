@@ -8,7 +8,7 @@ import static util.ThreadUtils.sleep;
 public class BoundedMain {
 
     public static void main(String[] args) {
-        BoundedQueueV3 queue = new BoundedQueueV3(2);
+        BoundedQueueV3 queue = new BoundedQueueV5(2);
 
         producerFirst(queue);
         consumerFirst(queue);
