@@ -23,6 +23,7 @@ public class BoundedQueueV6_3 implements BoundedQueue {
         System.out.println(offer);
     }
 
+
     @Override
     public String take() {
         return queue.poll();
