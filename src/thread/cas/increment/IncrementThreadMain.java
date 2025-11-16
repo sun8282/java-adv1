@@ -9,8 +9,8 @@ public class IncrementThreadMain {
 
     public static final int THREAD_COUNT = 1000;
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws InterruptedException {
+        test(new BasicInteger());
     }
 
     private static void test(IncrementInteger incrementInteger) throws InterruptedException {
