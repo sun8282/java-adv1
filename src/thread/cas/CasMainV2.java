@@ -13,5 +13,7 @@ public class CasMainV2 {
 
         int result2 = atomicInteger.incrementAndGet();
         System.out.println("result2 = " + result2);
+
+
     }
 }
