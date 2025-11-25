@@ -1,5 +1,7 @@
 package thread.collection.simple.list;
 
+import java.util.Arrays;
+
 import static util.ThreadUtils.sleep;
 
 public class BasicList implements SimpleList {
@@ -27,6 +29,12 @@ public class BasicList implements SimpleList {
 
     @Override
     public Object get(int index) {
-        return null;
+        return elementData[index];
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(Arrays.copyOf(elementData, size)) +
+                "size = " + size + ", capacity = " + elementData.length;
     }
 }
