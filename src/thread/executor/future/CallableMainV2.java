@@ -32,6 +32,7 @@ public class CallableMainV2 {
             int value = new Random().nextInt(10);
             log("Callable 시작");
             return value;
+
         }
     }
 }
