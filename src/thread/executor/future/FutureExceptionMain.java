@@ -24,7 +24,7 @@ public class FutureExceptionMain {
             Throwable cause = e.getCause();
             log("cause = " + cause);
         }
-
+        es.close();
     }
 
     static class ExCallable implements Callable<Integer> {
